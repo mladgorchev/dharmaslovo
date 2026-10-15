@@ -429,6 +429,51 @@
 			"source": "/feed/",
 			"destination": "/rss.xml",
 			"permanent": true
+		},
+		{
+			"source": "/wp-content/uploads/2026/07/Тъга-Любов-Отвореност-Будисткият-път-на-радостта.pdf",
+			"destination": "/files/taga-lyubov-otvorenost.pdf",
+			"permanent": true
+		},
+		{
+			"source": "/wp-content/uploads/2026/07/%D0%A2%D1%8A%D0%B3%D0%B0-%D0%9B%D1%8E%D0%B1%D0%BE%D0%B2-%D0%9E%D1%82%D0%B2%D0%BE%D1%80%D0%B5%D0%BD%D0%BE%D1%81%D1%82-%D0%91%D1%83%D0%B4%D0%B8%D1%81%D1%82%D0%BA%D0%B8%D1%8F%D1%82-%D0%BF%D1%8A%D1%82-%D0%BD%D0%B0-%D1%80%D0%B0%D0%B4%D0%BE%D1%81%D1%82%D1%82%D0%B0.pdf",
+			"destination": "/files/taga-lyubov-otvorenost.pdf",
+			"permanent": true
+		},
+		{
+			"source": "/wp-content/uploads/2026/07/%d0%a2%d1%8a%d0%b3%d0%b0-%d0%9b%d1%8e%d0%b1%d0%be%d0%b2-%d0%9e%d1%82%d0%b2%d0%be%d1%80%d0%b5%d0%bd%d0%be%d1%81%d1%82-%d0%91%d1%83%d0%b4%d0%b8%d1%81%d1%82%d0%ba%d0%b8%d1%8f%d1%82-%d0%bf%d1%8a%d1%82-%d0%bd%d0%b0-%d1%80%d0%b0%d0%b4%d0%be%d1%81%d1%82%d1%82%d0%b0.pdf",
+			"destination": "/files/taga-lyubov-otvorenost.pdf",
+			"permanent": true
+		},
+		{
+			"source": "/wp-content/uploads/2026/08/тъга-любов-отвореност-чоки-нима-ринпоче.jpg",
+			"destination": "/images/taga-lyubov-otvorenost-cover.jpg",
+			"permanent": true
+		},
+		{
+			"source": "/wp-content/uploads/2026/08/%D1%82%D1%8A%D0%B3%D0%B0-%D0%BB%D1%8E%D0%B1%D0%BE%D0%B2-%D0%BE%D1%82%D0%B2%D0%BE%D1%80%D0%B5%D0%BD%D0%BE%D1%81%D1%82-%D1%87%D0%BE%D0%BA%D0%B8-%D0%BD%D0%B8%D0%BC%D0%B0-%D1%80%D0%B8%D0%BD%D0%BF%D0%BE%D1%87%D0%B5.jpg",
+			"destination": "/images/taga-lyubov-otvorenost-cover.jpg",
+			"permanent": true
+		},
+		{
+			"source": "/wp-content/uploads/2026/08/%d1%82%d1%8a%d0%b3%d0%b0-%d0%bb%d1%8e%d0%b1%d0%be%d0%b2-%d0%be%d1%82%d0%b2%d0%be%d1%80%d0%b5%d0%bd%d0%be%d1%81%d1%82-%d1%87%d0%be%d0%ba%d0%b8-%d0%bd%d0%b8%d0%bc%d0%b0-%d1%80%d0%b8%d0%bd%d0%bf%d0%be%d1%87%d0%b5.jpg",
+			"destination": "/images/taga-lyubov-otvorenost-cover.jpg",
+			"permanent": true
+		},
+		{
+			"source": "/wp-content/uploads/2026/08/тъга-любов-отвореност-чоки-нима-ринпоче-669x1024.jpg",
+			"destination": "/images/taga-lyubov-otvorenost-cover.jpg",
+			"permanent": true
+		},
+		{
+			"source": "/wp-content/uploads/2026/08/%D1%82%D1%8A%D0%B3%D0%B0-%D0%BB%D1%8E%D0%B1%D0%BE%D0%B2-%D0%BE%D1%82%D0%B2%D0%BE%D1%80%D0%B5%D0%BD%D0%BE%D1%81%D1%82-%D1%87%D0%BE%D0%BA%D0%B8-%D0%BD%D0%B8%D0%BC%D0%B0-%D1%80%D0%B8%D0%BD%D0%BF%D0%BE%D1%87%D0%B5-669x1024.jpg",
+			"destination": "/images/taga-lyubov-otvorenost-cover.jpg",
+			"permanent": true
+		},
+		{
+			"source": "/wp-content/uploads/2026/08/%d1%82%d1%8a%d0%b3%d0%b0-%d0%bb%d1%8e%d0%b1%d0%be%d0%b2-%d0%be%d1%82%d0%b2%d0%be%d1%80%d0%b5%d0%bd%d0%be%d1%81%d1%82-%d1%87%d0%be%d0%ba%d0%b8-%d0%bd%d0%b8%d0%bc%d0%b0-%d1%80%d0%b8%d0%bd%d0%bf%d0%be%d1%87%d0%b5-669x1024.jpg",
+			"destination": "/images/taga-lyubov-otvorenost-cover.jpg",
+			"permanent": true
 		}
 	]
 }

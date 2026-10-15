@@ -7,9 +7,10 @@ The new dharmaslovo.org: a static site built with [Astro](https://astro.build), 
 - `src/content/translations/`: translations, served at `/prevodi/<file name>/`
 - `src/content/terms/`: glossary terms, served at `/rechnik/<file name>/`
 - `src/content/teachers/`: teachers and authors, served at `/uchiteli/<file name>/`
-- `public/wp-content/uploads/`: images and PDFs from the old WordPress site, kept at their old paths
+- `public/images/`: images
+- `public/files/`: downloads such as PDF books
 
-Old WordPress addresses redirect to the new ones through `vercel.json`.
+Old WordPress addresses, including the old `wp-content/uploads` file links, redirect to the new ones through `vercel.json`.
 
 ## Adding a translation
 
