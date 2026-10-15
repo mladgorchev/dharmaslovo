@@ -1,4 +1,5 @@
 ---
+draft: false
 title: "Тъга, Любов, Отвореност: Будисткият път на радостта"
 date: 2026-08-31T15:19:53
 teacher: chokyi-nyima-rinpoche

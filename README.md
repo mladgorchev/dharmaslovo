@@ -12,6 +12,12 @@ The new dharmaslovo.org: a static site built with [Astro](https://astro.build), 
 
 Old WordPress addresses, including the old `wp-content/uploads` file links, redirect to the new ones through `vercel.json`.
 
+## Editing online
+
+The site can be edited in the browser with [Pages CMS](https://app.pagescms.org): log in with GitHub and open this repository. Its settings are in `.pages.yml`. Every save is a commit to `main`, and Vercel publishes it within a couple of minutes.
+
+New texts start as drafts (`draft: true`): they are saved in the repository but not shown on the site until the draft switch is turned off. The repository is public, so drafts can still be read on GitHub.
+
 ## Adding a translation
 
 Create a Markdown file in `src/content/translations/`. The file name becomes the address: `metta-sutta.md` is served at `/prevodi/metta-sutta/`.

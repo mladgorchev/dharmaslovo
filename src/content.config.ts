@@ -8,7 +8,14 @@ const translations = defineCollection({
 		title: z.string(),
 		subtitle: z.string().optional(),
 		date: z.coerce.date(),
-		teacher: reference('teachers').optional(),
+		// Accepts "gampopa", "gampopa.md" or "src/content/teachers/gampopa.md", since the
+		// online editor (Pages CMS) may store the teacher as a file path.
+		teacher: z
+			.preprocess(
+				(v) => (typeof v === 'string' ? v.replace(/^.*\//, '').replace(/\.md$/, '') : v),
+				reference('teachers')
+			)
+			.optional(),
 		translator: z.string().optional(),
 		tradition: z.string().optional(),
 		original_language: z.string().optional(),

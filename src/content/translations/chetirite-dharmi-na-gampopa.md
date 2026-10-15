@@ -1,4 +1,5 @@
 ---
+draft: false
 title: Четирите дхарми на Гампопа
 date: 2026-01-02T12:18:56
 teacher: gampopa

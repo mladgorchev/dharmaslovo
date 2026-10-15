@@ -1,0 +1,207 @@
+# Pages CMS (https://pagescms.org): an online editor for this site's content.
+# Log in with GitHub at https://app.pagescms.org and open this repository.
+
+media:
+  - name: images
+    label: Изображения
+    input: public/images
+    output: /images
+    categories: [image]
+    rename: safe
+  - name: files
+    label: Файлове
+    input: public/files
+    output: /files
+    categories: [document]
+    rename: safe
+
+content:
+  - name: translations
+    label: Преводи
+    type: collection
+    path: src/content/translations
+    filename:
+      template: "{primary}.md"
+      field: create
+    view:
+      fields: [title, date, draft]
+      primary: title
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Заглавие
+        type: string
+        required: true
+      - name: subtitle
+        label: Подзаглавие
+        type: string
+      - name: draft
+        label: Чернова
+        description: Докато е включено, текстът е запазен, но не се показва на сайта.
+        type: boolean
+        default: true
+      - name: date
+        label: Дата
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: teacher
+        label: Учител / автор
+        type: reference
+        options:
+          collection: teachers
+          label: "{fields.name}"
+          search: "name"
+      - name: translator
+        label: Преводач
+        type: string
+        default: Младен Горчев
+      - name: tradition
+        label: Традиция
+        type: select
+        options:
+          values: [Тибетски будизъм, Махаяна, Тхеравада, Ваджраяна, Дзен]
+      - name: original_language
+        label: Език на оригинала
+        type: select
+        options:
+          values: [Тибетски, Санскрит, Пали, Китайски, Английски]
+      - name: source
+        label: Източник (връзка)
+        type: string
+      - name: tags
+        label: Теми
+        type: string
+        list: true
+      - name: excerpt
+        label: Кратко описание
+        description: Показва се в списъците. Ако е празно, се взима началото на текста.
+        type: text
+      - name: cover
+        label: Изображение
+        type: image
+        options:
+          media: images
+      - name: cover_style
+        label: Как да се показва изображението
+        type: select
+        options:
+          values:
+            - name: photo
+              label: Снимка (изрязана да запълни мястото)
+            - name: book
+              label: Корица на книга (цялата, изправена)
+            - name: framed
+              label: Картина (цялата, в рамка)
+      - name: cover_credit
+        label: Източник на изображението
+        type: text
+      - name: cover_credit_url
+        label: Връзка към източника на изображението
+        type: string
+      - name: featured
+        label: Препоръчан на началната страница
+        type: boolean
+      - name: dropcap
+        label: Голяма първа буква
+        type: boolean
+        default: true
+      - name: body
+        label: Текст
+        type: rich-text
+        options:
+          format: markdown
+          media: images
+
+  - name: terms
+    label: Речник
+    type: collection
+    path: src/content/terms
+    filename:
+      template: "{primary}.md"
+      field: create
+    view:
+      fields: [title, draft]
+      primary: title
+      sort: [title, date]
+      default:
+        sort: title
+        order: asc
+    fields:
+      - name: title
+        label: Термин
+        type: string
+        required: true
+      - name: draft
+        label: Чернова
+        description: Докато е включено, терминът е запазен, но не се показва на сайта.
+        type: boolean
+        default: true
+      - name: date
+        label: Дата
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: tags
+        label: Теми
+        type: string
+        list: true
+      - name: body
+        label: Обяснение
+        type: rich-text
+        options:
+          format: markdown
+          media: images
+
+  - name: teachers
+    label: Учители
+    type: collection
+    path: src/content/teachers
+    filename:
+      template: "{primary}.md"
+      field: create
+    view:
+      fields: [name, dates]
+      primary: name
+    fields:
+      - name: name
+        label: Име
+        type: string
+        required: true
+      - name: dates
+        label: Години
+        description: Например 1079–1153 или р. 1951
+        type: string
+      - name: tradition
+        label: Традиция
+        type: select
+        options:
+          values: [Тибетски будизъм, Махаяна, Тхеравада, Ваджраяна, Дзен]
+      - name: region
+        label: Регион
+        type: string
+      - name: summary
+        label: Кратко описание
+        type: text
+      - name: portrait
+        label: Портрет
+        type: image
+        options:
+          media: images
+      - name: portrait_credit
+        label: Източник на портрета
+        type: text
+      - name: portrait_credit_url
+        label: Връзка към източника на портрета
+        type: string
+      - name: body
+        label: Животопис
+        type: rich-text
+        options:
+          format: markdown
+          media: images
