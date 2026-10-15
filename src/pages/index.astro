@@ -2,20 +2,22 @@
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import Story from '../components/Story.astro';
-import { getTranslations, slugify } from '../lib/utils';
+import { excerptOf, getTerms, getTranslations, slugify, termUrl } from '../lib/utils';
 import { verses } from '../data/verses';
 
 const translations = await getTranslations();
 const featured = translations.find((t) => t.data.featured) ?? translations[0];
 const rest = translations.filter((t) => t !== featured);
 const seconds = rest.slice(0, 2);
-const headlines = rest.slice(2, 6);
-const rows = rest.slice(0, 5);
+// Translations not already shown in the lead block.
+const rows = rest.slice(2, 7);
+const terms = await getTerms();
+const recentTerms = [...terms].sort((a, b) => b.data.date.getTime() - a.data.date.getTime()).slice(0, 4);
 const teachers = (await getCollection('teachers')).sort((a, b) => a.data.name.localeCompare(b.data.name, 'bg'));
 const count = (id: string) => translations.filter((t) => t.data.teacher?.id === id).length;
 
 const tagCounts = new Map<string, number>();
-translations.forEach((t) => t.data.tags.forEach((tag) => tagCounts.set(tag, (tagCounts.get(tag) ?? 0) + 1)));
+[...translations, ...terms].forEach((t) => t.data.tags.forEach((tag) => tagCounts.set(tag, (tagCounts.get(tag) ?? 0) + 1)));
 const tags = [...tagCounts].sort((a, b) => b[1] - a[1]).slice(0, 16);
 const verse = verses[0];
 ---
@@ -29,8 +31,14 @@ const verse = verses[0];
 				</div>
 			</div>
 			<aside class="headlines panel">
-				{headlines.map((entry) => <Story entry={entry} variant="headline" />)}
-				<a class="btn" href="/prevodi/">Виж още</a>
+				{recentTerms.map((t) => (
+					<a class="headline" href={termUrl(t)}>
+						<span class="kicker">Речник</span>
+						<h3>{t.data.title}</h3>
+						<span class="byline">{excerptOf(t, 70)}</span>
+					</a>
+				))}
+				<a class="btn" href="/rechnik/">Целият речник</a>
 			</aside>
 		</section>
 
@@ -55,23 +63,45 @@ const verse = verses[0];
 					))}
 				</ul>
 				<a class="btn" href="/uchiteli/">Всички учители</a>
-				<a class="btn btn-solid" href="/temi/">Разгледай по тема</a>
+				<a class="btn btn-solid" href="/prevodi/">Всички преводи</a>
 			</aside>
 		</section>
 
-		<h2 class="section-title">Преводи</h2>
-		<p class="section-sub">Сутри, учения и коментари, преведени на български</p>
-		<div class="rows">
-			{rows.map((entry) => <Story entry={entry} variant="row" />)}
-		</div>
-		<div class="btn-row"><a class="btn btn-plum" href="/prevodi/">Всички преводи</a></div>
+		{rows.length > 0 && (
+			<>
+				<h2 class="section-title">Още преводи</h2>
+				<p class="section-sub">Сутри, учения и коментари, преведени на български</p>
+				<div class="rows">
+					{rows.map((entry) => <Story entry={entry} variant="row" />)}
+				</div>
+				<div class="btn-row"><a class="btn btn-plum" href="/prevodi/">Всички преводи</a></div>
+			</>
+		)}
 
-		<hr class="section-rule" />
-		<h2 class="section-title">Теми</h2>
-		<p class="section-sub">Разгледайте преводите по тема</p>
-		<div class="topic-list panel">
-			{tags.map(([tag, n]) => <a href={`/temi/${slugify(tag)}/`}>{tag}<span class="count">{n}</span></a>)}
-		</div>
+		<h2 class="section-title">Речник</h2>
+		<p class="section-sub">Будистки термини с еквивалентите им на санскрит, пали и тибетски</p>
+		<ul class="term-list panel home-terms">
+			{terms.map((t) => (
+				<li>
+					<a href={termUrl(t)}>
+						<strong>{t.data.title}</strong>
+						<span>{excerptOf(t, 140)}</span>
+					</a>
+				</li>
+			))}
+		</ul>
+		<div class="btn-row"><a class="btn btn-plum" href="/rechnik/">Целият речник</a></div>
+
+		{tags.length >= 3 && (
+			<>
+				<hr class="section-rule" />
+				<h2 class="section-title">Теми</h2>
+				<p class="section-sub">Разгледайте текстовете по тема</p>
+				<div class="topic-list panel">
+					{tags.map(([tag, n]) => <a href={`/temi/${slugify(tag)}/`}>{tag}<span class="count">{n}</span></a>)}
+				</div>
+			</>
+		)}
 	</div>
 </Base>
 

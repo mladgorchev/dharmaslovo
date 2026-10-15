@@ -19,8 +19,8 @@
 	--on-accent: #ffffff;
 	--panel-shadow: 0 0 3px rgb(0 0 0 / 15%);
 
-	--serif: 'Source Serif 4 Variable', Georgia, Cambria, 'Times New Roman', serif;
-	--sans: 'Alegreya Sans', 'Lucida Grande', Tahoma, Verdana, sans-serif;
+	--serif: 'Source Serif 4 Variable', Jomolhari, Georgia, Cambria, 'Times New Roman', serif;
+	--sans: 'Alegreya Sans', Jomolhari, 'Lucida Grande', Tahoma, Verdana, sans-serif;
 	--display: 'Jost Variable', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
 	--wrap: 1160px;
@@ -584,6 +584,7 @@ h4 {
 }
 
 .verse blockquote {
+	white-space: pre-line;
 	margin: 18px 0 0;
 	font-family: var(--serif);
 	font-size: clamp(1.4rem, 2.8vw, 2.05rem);
@@ -1372,4 +1373,140 @@ h4 {
 	.row-story p {
 		display: none;
 	}
+}
+
+/* ---------- Glossary ---------- */
+
+.alphabet {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 4px;
+	margin-top: var(--gap);
+	padding: 12px;
+}
+
+.alphabet a,
+.alphabet span {
+	display: grid;
+	place-items: center;
+	min-width: 34px;
+	height: 34px;
+	font-size: 1rem;
+	font-weight: 500;
+}
+
+.alphabet a {
+	color: var(--accent);
+	border: 1px solid var(--accent);
+}
+
+.alphabet a:hover {
+	background: var(--accent);
+	color: var(--on-accent);
+}
+
+.alphabet span {
+	color: var(--line);
+}
+
+.letter-group {
+	display: grid;
+	grid-template-columns: 80px 1fr;
+	gap: 20px;
+	margin-top: 14px;
+	padding: 22px 24px;
+	scroll-margin-top: 20px;
+}
+
+.letter {
+	font-size: 2.6rem;
+	font-weight: 600;
+	line-height: 1;
+	color: var(--accent);
+}
+
+.term-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.term-list li + li {
+	border-top: 1px solid var(--rule);
+}
+
+.term-list a {
+	display: grid;
+	grid-template-columns: minmax(160px, 1fr) 3fr;
+	gap: 6px 24px;
+	padding: 12px 0;
+}
+
+.term-list strong {
+	font: 600 1.2rem/1.3 var(--serif);
+	color: var(--ink);
+}
+
+.term-list span {
+	font-size: 1rem;
+	color: var(--muted);
+}
+
+.term-list a:hover strong {
+	color: var(--accent);
+}
+
+.home-terms {
+	padding: 8px 24px;
+}
+
+.term-body {
+	grid-template-columns: minmax(0, 1fr) 300px;
+}
+
+.term-date {
+	margin-top: 28px;
+	font-size: 0.9rem;
+}
+
+@media (max-width: 1000px) {
+	.term-body {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 640px) {
+	.letter-group {
+		grid-template-columns: 1fr;
+		gap: 4px;
+		padding: 16px;
+	}
+
+	.term-list a {
+		grid-template-columns: 1fr;
+	}
+
+	.home-terms {
+		padding: 4px 16px;
+	}
+}
+
+/* ---------- Pieces used inside imported texts ---------- */
+
+.prose .book-cover {
+	width: min(291px, 70%);
+	margin: 1.6em auto;
+	box-shadow: var(--panel-shadow), 0 10px 30px -12px rgb(0 0 0 / 35%);
+}
+
+.prose .download {
+	text-align: center;
+}
+
+.prose a.btn {
+	color: var(--on-accent);
+	text-decoration: none;
+	font-family: var(--sans);
+	font-size: 0.85rem;
 }

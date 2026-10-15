@@ -9,7 +9,7 @@ const translations = defineCollection({
 		subtitle: z.string().optional(),
 		date: z.coerce.date(),
 		teacher: reference('teachers').optional(),
-		translator: z.string(),
+		translator: z.string().optional(),
 		tradition: z.string().optional(),
 		original_language: z.string().optional(),
 		source: z.string().optional(),
@@ -17,6 +17,8 @@ const translations = defineCollection({
 		excerpt: z.string().optional(),
 		cover: z.string().optional(),
 		featured: z.boolean().default(false),
+		// Large first letter on the text page; off for texts that open with a note or a verse.
+		dropcap: z.boolean().default(true),
 		draft: z.boolean().default(false),
 	}),
 });
@@ -28,9 +30,19 @@ const teachers = defineCollection({
 		dates: z.string().optional(),
 		tradition: z.string().optional(),
 		region: z.string().optional(),
-		summary: z.string(),
+		summary: z.string().optional(),
 		portrait: z.string().optional(),
 	}),
 });
 
-export const collections = { translations, teachers };
+const terms = defineCollection({
+	loader: glob({ pattern: '**/*.md', base: './src/content/terms' }),
+	schema: z.object({
+		title: z.string(),
+		date: z.coerce.date(),
+		tags: z.array(z.string()).default([]),
+		draft: z.boolean().default(false),
+	}),
+});
+
+export const collections = { translations, teachers, terms };

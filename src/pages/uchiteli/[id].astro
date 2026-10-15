@@ -14,7 +14,7 @@ const { data } = teacher;
 const { Content } = await render(teacher);
 const works = (await getTranslations()).filter((t) => t.data.teacher?.id === teacher.id);
 ---
-<Base title={data.name} description={data.summary}>
+<Base title={data.name} description={data.summary ?? `Преводи на текстове от ${data.name}.`}>
 	<div class="wrap">
 		<article class="bio panel">
 			<header class="bio-head">
@@ -26,7 +26,7 @@ const works = (await getTranslations()).filter((t) => t.data.teacher?.id === tea
 				<span class="date">{[data.dates, data.region].filter(Boolean).join(' · ')}</span>
 			</header>
 			<div class="prose">
-				<p class="lede">{data.summary}</p>
+				{data.summary && <p class="lede">{data.summary}</p>}
 				<Content />
 			</div>
 		</article>

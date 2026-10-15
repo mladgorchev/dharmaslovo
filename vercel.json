@@ -1,0 +1,434 @@
+{
+	"redirects": [
+		{
+			"source": "/будистки-термини/абидхарма",
+			"destination": "/rechnik/abidharma/",
+			"permanent": true
+		},
+		{
+			"source": "/будистки-термини/абидхарма/",
+			"destination": "/rechnik/abidharma/",
+			"permanent": true
+		},
+		{
+			"source": "/%D0%B1%D1%83%D0%B4%D0%B8%D1%81%D1%82%D0%BA%D0%B8-%D1%82%D0%B5%D1%80%D0%BC%D0%B8%D0%BD%D0%B8/%D0%B0%D0%B1%D0%B8%D0%B4%D1%85%D0%B0%D1%80%D0%BC%D0%B0",
+			"destination": "/rechnik/abidharma/",
+			"permanent": true
+		},
+		{
+			"source": "/%D0%B1%D1%83%D0%B4%D0%B8%D1%81%D1%82%D0%BA%D0%B8-%D1%82%D0%B5%D1%80%D0%BC%D0%B8%D0%BD%D0%B8/%D0%B0%D0%B1%D0%B8%D0%B4%D1%85%D0%B0%D1%80%D0%BC%D0%B0/",
+			"destination": "/rechnik/abidharma/",
+			"permanent": true
+		},
+		{
+			"source": "/%d0%b1%d1%83%d0%b4%d0%b8%d1%81%d1%82%d0%ba%d0%b8-%d1%82%d0%b5%d1%80%d0%bc%d0%b8%d0%bd%d0%b8/%d0%b0%d0%b1%d0%b8%d0%b4%d1%85%d0%b0%d1%80%d0%bc%d0%b0",
+			"destination": "/rechnik/abidharma/",
+			"permanent": true
+		},
+		{
+			"source": "/%d0%b1%d1%83%d0%b4%d0%b8%d1%81%d1%82%d0%ba%d0%b8-%d1%82%d0%b5%d1%80%d0%bc%d0%b8%d0%bd%d0%b8/%d0%b0%d0%b1%d0%b8%d0%b4%d1%85%d0%b0%d1%80%d0%bc%d0%b0/",
+			"destination": "/rechnik/abidharma/",
+			"permanent": true
+		},
+		{
+			"source": "/будистки-термини/бодхичита",
+			"destination": "/rechnik/bodhichita/",
+			"permanent": true
+		},
+		{
+			"source": "/будистки-термини/бодхичита/",
+			"destination": "/rechnik/bodhichita/",
+			"permanent": true
+		},
+		{
+			"source": "/%D0%B1%D1%83%D0%B4%D0%B8%D1%81%D1%82%D0%BA%D0%B8-%D1%82%D0%B5%D1%80%D0%BC%D0%B8%D0%BD%D0%B8/%D0%B1%D0%BE%D0%B4%D1%85%D0%B8%D1%87%D0%B8%D1%82%D0%B0",
+			"destination": "/rechnik/bodhichita/",
+			"permanent": true
+		},
+		{
+			"source": "/%D0%B1%D1%83%D0%B4%D0%B8%D1%81%D1%82%D0%BA%D0%B8-%D1%82%D0%B5%D1%80%D0%BC%D0%B8%D0%BD%D0%B8/%D0%B1%D0%BE%D0%B4%D1%85%D0%B8%D1%87%D0%B8%D1%82%D0%B0/",
+			"destination": "/rechnik/bodhichita/",
+			"permanent": true
+		},
+		{
+			"source": "/%d0%b1%d1%83%d0%b4%d0%b8%d1%81%d1%82%d0%ba%d0%b8-%d1%82%d0%b5%d1%80%d0%bc%d0%b8%d0%bd%d0%b8/%d0%b1%d0%be%d0%b4%d1%85%d0%b8%d1%87%d0%b8%d1%82%d0%b0",
+			"destination": "/rechnik/bodhichita/",
+			"permanent": true
+		},
+		{
+			"source": "/%d0%b1%d1%83%d0%b4%d0%b8%d1%81%d1%82%d0%ba%d0%b8-%d1%82%d0%b5%d1%80%d0%bc%d0%b8%d0%bd%d0%b8/%d0%b1%d0%be%d0%b4%d1%85%d0%b8%d1%87%d0%b8%d1%82%d0%b0/",
+			"destination": "/rechnik/bodhichita/",
+			"permanent": true
+		},
+		{
+			"source": "/будистки-термини/вайбхашика",
+			"destination": "/rechnik/vaybhashika/",
+			"permanent": true
+		},
+		{
+			"source": "/будистки-термини/вайбхашика/",
+			"destination": "/rechnik/vaybhashika/",
+			"permanent": true
+		},
+		{
+			"source": "/%D0%B1%D1%83%D0%B4%D0%B8%D1%81%D1%82%D0%BA%D0%B8-%D1%82%D0%B5%D1%80%D0%BC%D0%B8%D0%BD%D0%B8/%D0%B2%D0%B0%D0%B9%D0%B1%D1%85%D0%B0%D1%88%D0%B8%D0%BA%D0%B0",
+			"destination": "/rechnik/vaybhashika/",
+			"permanent": true
+		},
+		{
+			"source": "/%D0%B1%D1%83%D0%B4%D0%B8%D1%81%D1%82%D0%BA%D0%B8-%D1%82%D0%B5%D1%80%D0%BC%D0%B8%D0%BD%D0%B8/%D0%B2%D0%B0%D0%B9%D0%B1%D1%85%D0%B0%D1%88%D0%B8%D0%BA%D0%B0/",
+			"destination": "/rechnik/vaybhashika/",
+			"permanent": true
+		},
+		{
+			"source": "/%d0%b1%d1%83%d0%b4%d0%b8%d1%81%d1%82%d0%ba%d0%b8-%d1%82%d0%b5%d1%80%d0%bc%d0%b8%d0%bd%d0%b8/%d0%b2%d0%b0%d0%b9%d0%b1%d1%85%d0%b0%d1%88%d0%b8%d0%ba%d0%b0",
+			"destination": "/rechnik/vaybhashika/",
+			"permanent": true
+		},
+		{
+			"source": "/%d0%b1%d1%83%d0%b4%d0%b8%d1%81%d1%82%d0%ba%d0%b8-%d1%82%d0%b5%d1%80%d0%bc%d0%b8%d0%bd%d0%b8/%d0%b2%d0%b0%d0%b9%d0%b1%d1%85%d0%b0%d1%88%d0%b8%d0%ba%d0%b0/",
+			"destination": "/rechnik/vaybhashika/",
+			"permanent": true
+		},
+		{
+			"source": "/будистки-термини/будистка-епистемология",
+			"destination": "/rechnik/budistka-epistemologiya/",
+			"permanent": true
+		},
+		{
+			"source": "/будистки-термини/будистка-епистемология/",
+			"destination": "/rechnik/budistka-epistemologiya/",
+			"permanent": true
+		},
+		{
+			"source": "/%D0%B1%D1%83%D0%B4%D0%B8%D1%81%D1%82%D0%BA%D0%B8-%D1%82%D0%B5%D1%80%D0%BC%D0%B8%D0%BD%D0%B8/%D0%B1%D1%83%D0%B4%D0%B8%D1%81%D1%82%D0%BA%D0%B0-%D0%B5%D0%BF%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F",
+			"destination": "/rechnik/budistka-epistemologiya/",
+			"permanent": true
+		},
+		{
+			"source": "/%D0%B1%D1%83%D0%B4%D0%B8%D1%81%D1%82%D0%BA%D0%B8-%D1%82%D0%B5%D1%80%D0%BC%D0%B8%D0%BD%D0%B8/%D0%B1%D1%83%D0%B4%D0%B8%D1%81%D1%82%D0%BA%D0%B0-%D0%B5%D0%BF%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F/",
+			"destination": "/rechnik/budistka-epistemologiya/",
+			"permanent": true
+		},
+		{
+			"source": "/%d0%b1%d1%83%d0%b4%d0%b8%d1%81%d1%82%d0%ba%d0%b8-%d1%82%d0%b5%d1%80%d0%bc%d0%b8%d0%bd%d0%b8/%d0%b1%d1%83%d0%b4%d0%b8%d1%81%d1%82%d0%ba%d0%b0-%d0%b5%d0%bf%d0%b8%d1%81%d1%82%d0%b5%d0%bc%d0%be%d0%bb%d0%be%d0%b3%d0%b8%d1%8f",
+			"destination": "/rechnik/budistka-epistemologiya/",
+			"permanent": true
+		},
+		{
+			"source": "/%d0%b1%d1%83%d0%b4%d0%b8%d1%81%d1%82%d0%ba%d0%b8-%d1%82%d0%b5%d1%80%d0%bc%d0%b8%d0%bd%d0%b8/%d0%b1%d1%83%d0%b4%d0%b8%d1%81%d1%82%d0%ba%d0%b0-%d0%b5%d0%bf%d0%b8%d1%81%d1%82%d0%b5%d0%bc%d0%be%d0%bb%d0%be%d0%b3%d0%b8%d1%8f/",
+			"destination": "/rechnik/budistka-epistemologiya/",
+			"permanent": true
+		},
+		{
+			"source": "/будистки-термини/будистка-онтология",
+			"destination": "/rechnik/budistka-ontologiya/",
+			"permanent": true
+		},
+		{
+			"source": "/будистки-термини/будистка-онтология/",
+			"destination": "/rechnik/budistka-ontologiya/",
+			"permanent": true
+		},
+		{
+			"source": "/%D0%B1%D1%83%D0%B4%D0%B8%D1%81%D1%82%D0%BA%D0%B8-%D1%82%D0%B5%D1%80%D0%BC%D0%B8%D0%BD%D0%B8/%D0%B1%D1%83%D0%B4%D0%B8%D1%81%D1%82%D0%BA%D0%B0-%D0%BE%D0%BD%D1%82%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F",
+			"destination": "/rechnik/budistka-ontologiya/",
+			"permanent": true
+		},
+		{
+			"source": "/%D0%B1%D1%83%D0%B4%D0%B8%D1%81%D1%82%D0%BA%D0%B8-%D1%82%D0%B5%D1%80%D0%BC%D0%B8%D0%BD%D0%B8/%D0%B1%D1%83%D0%B4%D0%B8%D1%81%D1%82%D0%BA%D0%B0-%D0%BE%D0%BD%D1%82%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F/",
+			"destination": "/rechnik/budistka-ontologiya/",
+			"permanent": true
+		},
+		{
+			"source": "/%d0%b1%d1%83%d0%b4%d0%b8%d1%81%d1%82%d0%ba%d0%b8-%d1%82%d0%b5%d1%80%d0%bc%d0%b8%d0%bd%d0%b8/%d0%b1%d1%83%d0%b4%d0%b8%d1%81%d1%82%d0%ba%d0%b0-%d0%be%d0%bd%d1%82%d0%be%d0%bb%d0%be%d0%b3%d0%b8%d1%8f",
+			"destination": "/rechnik/budistka-ontologiya/",
+			"permanent": true
+		},
+		{
+			"source": "/%d0%b1%d1%83%d0%b4%d0%b8%d1%81%d1%82%d0%ba%d0%b8-%d1%82%d0%b5%d1%80%d0%bc%d0%b8%d0%bd%d0%b8/%d0%b1%d1%83%d0%b4%d0%b8%d1%81%d1%82%d0%ba%d0%b0-%d0%be%d0%bd%d1%82%d0%be%d0%bb%d0%be%d0%b3%d0%b8%d1%8f/",
+			"destination": "/rechnik/budistka-ontologiya/",
+			"permanent": true
+		},
+		{
+			"source": "/будистки-термини",
+			"destination": "/rechnik/",
+			"permanent": true
+		},
+		{
+			"source": "/будистки-термини/",
+			"destination": "/rechnik/",
+			"permanent": true
+		},
+		{
+			"source": "/%D0%B1%D1%83%D0%B4%D0%B8%D1%81%D1%82%D0%BA%D0%B8-%D1%82%D0%B5%D1%80%D0%BC%D0%B8%D0%BD%D0%B8",
+			"destination": "/rechnik/",
+			"permanent": true
+		},
+		{
+			"source": "/%D0%B1%D1%83%D0%B4%D0%B8%D1%81%D1%82%D0%BA%D0%B8-%D1%82%D0%B5%D1%80%D0%BC%D0%B8%D0%BD%D0%B8/",
+			"destination": "/rechnik/",
+			"permanent": true
+		},
+		{
+			"source": "/%d0%b1%d1%83%d0%b4%d0%b8%d1%81%d1%82%d0%ba%d0%b8-%d1%82%d0%b5%d1%80%d0%bc%d0%b8%d0%bd%d0%b8",
+			"destination": "/rechnik/",
+			"permanent": true
+		},
+		{
+			"source": "/%d0%b1%d1%83%d0%b4%d0%b8%d1%81%d1%82%d0%ba%d0%b8-%d1%82%d0%b5%d1%80%d0%bc%d0%b8%d0%bd%d0%b8/",
+			"destination": "/rechnik/",
+			"permanent": true
+		},
+		{
+			"source": "/category/будистки-термини",
+			"destination": "/rechnik/",
+			"permanent": true
+		},
+		{
+			"source": "/category/будистки-термини/",
+			"destination": "/rechnik/",
+			"permanent": true
+		},
+		{
+			"source": "/category/%D0%B1%D1%83%D0%B4%D0%B8%D1%81%D1%82%D0%BA%D0%B8-%D1%82%D0%B5%D1%80%D0%BC%D0%B8%D0%BD%D0%B8",
+			"destination": "/rechnik/",
+			"permanent": true
+		},
+		{
+			"source": "/category/%D0%B1%D1%83%D0%B4%D0%B8%D1%81%D1%82%D0%BA%D0%B8-%D1%82%D0%B5%D1%80%D0%BC%D0%B8%D0%BD%D0%B8/",
+			"destination": "/rechnik/",
+			"permanent": true
+		},
+		{
+			"source": "/category/%d0%b1%d1%83%d0%b4%d0%b8%d1%81%d1%82%d0%ba%d0%b8-%d1%82%d0%b5%d1%80%d0%bc%d0%b8%d0%bd%d0%b8",
+			"destination": "/rechnik/",
+			"permanent": true
+		},
+		{
+			"source": "/category/%d0%b1%d1%83%d0%b4%d0%b8%d1%81%d1%82%d0%ba%d0%b8-%d1%82%d0%b5%d1%80%d0%bc%d0%b8%d0%bd%d0%b8/",
+			"destination": "/rechnik/",
+			"permanent": true
+		},
+		{
+			"source": "/тибетски-език/уайли",
+			"destination": "/rechnik/",
+			"permanent": true
+		},
+		{
+			"source": "/тибетски-език/уайли/",
+			"destination": "/rechnik/",
+			"permanent": true
+		},
+		{
+			"source": "/%D1%82%D0%B8%D0%B1%D0%B5%D1%82%D1%81%D0%BA%D0%B8-%D0%B5%D0%B7%D0%B8%D0%BA/%D1%83%D0%B0%D0%B9%D0%BB%D0%B8",
+			"destination": "/rechnik/",
+			"permanent": true
+		},
+		{
+			"source": "/%D1%82%D0%B8%D0%B1%D0%B5%D1%82%D1%81%D0%BA%D0%B8-%D0%B5%D0%B7%D0%B8%D0%BA/%D1%83%D0%B0%D0%B9%D0%BB%D0%B8/",
+			"destination": "/rechnik/",
+			"permanent": true
+		},
+		{
+			"source": "/%d1%82%d0%b8%d0%b1%d0%b5%d1%82%d1%81%d0%ba%d0%b8-%d0%b5%d0%b7%d0%b8%d0%ba/%d1%83%d0%b0%d0%b9%d0%bb%d0%b8",
+			"destination": "/rechnik/",
+			"permanent": true
+		},
+		{
+			"source": "/%d1%82%d0%b8%d0%b1%d0%b5%d1%82%d1%81%d0%ba%d0%b8-%d0%b5%d0%b7%d0%b8%d0%ba/%d1%83%d0%b0%d0%b9%d0%bb%d0%b8/",
+			"destination": "/rechnik/",
+			"permanent": true
+		},
+		{
+			"source": "/category/тибетски-език",
+			"destination": "/rechnik/",
+			"permanent": true
+		},
+		{
+			"source": "/category/тибетски-език/",
+			"destination": "/rechnik/",
+			"permanent": true
+		},
+		{
+			"source": "/category/%D1%82%D0%B8%D0%B1%D0%B5%D1%82%D1%81%D0%BA%D0%B8-%D0%B5%D0%B7%D0%B8%D0%BA",
+			"destination": "/rechnik/",
+			"permanent": true
+		},
+		{
+			"source": "/category/%D1%82%D0%B8%D0%B1%D0%B5%D1%82%D1%81%D0%BA%D0%B8-%D0%B5%D0%B7%D0%B8%D0%BA/",
+			"destination": "/rechnik/",
+			"permanent": true
+		},
+		{
+			"source": "/category/%d1%82%d0%b8%d0%b1%d0%b5%d1%82%d1%81%d0%ba%d0%b8-%d0%b5%d0%b7%d0%b8%d0%ba",
+			"destination": "/rechnik/",
+			"permanent": true
+		},
+		{
+			"source": "/category/%d1%82%d0%b8%d0%b1%d0%b5%d1%82%d1%81%d0%ba%d0%b8-%d0%b5%d0%b7%d0%b8%d0%ba/",
+			"destination": "/rechnik/",
+			"permanent": true
+		},
+		{
+			"source": "/преводи/четирите-дхарми-на-гампопа",
+			"destination": "/prevodi/chetirite-dharmi-na-gampopa/",
+			"permanent": true
+		},
+		{
+			"source": "/преводи/четирите-дхарми-на-гампопа/",
+			"destination": "/prevodi/chetirite-dharmi-na-gampopa/",
+			"permanent": true
+		},
+		{
+			"source": "/%D0%BF%D1%80%D0%B5%D0%B2%D0%BE%D0%B4%D0%B8/%D1%87%D0%B5%D1%82%D0%B8%D1%80%D0%B8%D1%82%D0%B5-%D0%B4%D1%85%D0%B0%D1%80%D0%BC%D0%B8-%D0%BD%D0%B0-%D0%B3%D0%B0%D0%BC%D0%BF%D0%BE%D0%BF%D0%B0",
+			"destination": "/prevodi/chetirite-dharmi-na-gampopa/",
+			"permanent": true
+		},
+		{
+			"source": "/%D0%BF%D1%80%D0%B5%D0%B2%D0%BE%D0%B4%D0%B8/%D1%87%D0%B5%D1%82%D0%B8%D1%80%D0%B8%D1%82%D0%B5-%D0%B4%D1%85%D0%B0%D1%80%D0%BC%D0%B8-%D0%BD%D0%B0-%D0%B3%D0%B0%D0%BC%D0%BF%D0%BE%D0%BF%D0%B0/",
+			"destination": "/prevodi/chetirite-dharmi-na-gampopa/",
+			"permanent": true
+		},
+		{
+			"source": "/%d0%bf%d1%80%d0%b5%d0%b2%d0%be%d0%b4%d0%b8/%d1%87%d0%b5%d1%82%d0%b8%d1%80%d0%b8%d1%82%d0%b5-%d0%b4%d1%85%d0%b0%d1%80%d0%bc%d0%b8-%d0%bd%d0%b0-%d0%b3%d0%b0%d0%bc%d0%bf%d0%be%d0%bf%d0%b0",
+			"destination": "/prevodi/chetirite-dharmi-na-gampopa/",
+			"permanent": true
+		},
+		{
+			"source": "/%d0%bf%d1%80%d0%b5%d0%b2%d0%be%d0%b4%d0%b8/%d1%87%d0%b5%d1%82%d0%b8%d1%80%d0%b8%d1%82%d0%b5-%d0%b4%d1%85%d0%b0%d1%80%d0%bc%d0%b8-%d0%bd%d0%b0-%d0%b3%d0%b0%d0%bc%d0%bf%d0%be%d0%bf%d0%b0/",
+			"destination": "/prevodi/chetirite-dharmi-na-gampopa/",
+			"permanent": true
+		},
+		{
+			"source": "/преводи/taga-lyubov-otvorenost",
+			"destination": "/prevodi/taga-lyubov-otvorenost/",
+			"permanent": true
+		},
+		{
+			"source": "/преводи/taga-lyubov-otvorenost/",
+			"destination": "/prevodi/taga-lyubov-otvorenost/",
+			"permanent": true
+		},
+		{
+			"source": "/%D0%BF%D1%80%D0%B5%D0%B2%D0%BE%D0%B4%D0%B8/taga-lyubov-otvorenost",
+			"destination": "/prevodi/taga-lyubov-otvorenost/",
+			"permanent": true
+		},
+		{
+			"source": "/%D0%BF%D1%80%D0%B5%D0%B2%D0%BE%D0%B4%D0%B8/taga-lyubov-otvorenost/",
+			"destination": "/prevodi/taga-lyubov-otvorenost/",
+			"permanent": true
+		},
+		{
+			"source": "/%d0%bf%d1%80%d0%b5%d0%b2%d0%be%d0%b4%d0%b8/taga-lyubov-otvorenost",
+			"destination": "/prevodi/taga-lyubov-otvorenost/",
+			"permanent": true
+		},
+		{
+			"source": "/%d0%bf%d1%80%d0%b5%d0%b2%d0%be%d0%b4%d0%b8/taga-lyubov-otvorenost/",
+			"destination": "/prevodi/taga-lyubov-otvorenost/",
+			"permanent": true
+		},
+		{
+			"source": "/преводи",
+			"destination": "/prevodi/",
+			"permanent": true
+		},
+		{
+			"source": "/преводи/",
+			"destination": "/prevodi/",
+			"permanent": true
+		},
+		{
+			"source": "/%D0%BF%D1%80%D0%B5%D0%B2%D0%BE%D0%B4%D0%B8",
+			"destination": "/prevodi/",
+			"permanent": true
+		},
+		{
+			"source": "/%D0%BF%D1%80%D0%B5%D0%B2%D0%BE%D0%B4%D0%B8/",
+			"destination": "/prevodi/",
+			"permanent": true
+		},
+		{
+			"source": "/%d0%bf%d1%80%d0%b5%d0%b2%d0%be%d0%b4%d0%b8",
+			"destination": "/prevodi/",
+			"permanent": true
+		},
+		{
+			"source": "/%d0%bf%d1%80%d0%b5%d0%b2%d0%be%d0%b4%d0%b8/",
+			"destination": "/prevodi/",
+			"permanent": true
+		},
+		{
+			"source": "/category/преводи",
+			"destination": "/prevodi/",
+			"permanent": true
+		},
+		{
+			"source": "/category/преводи/",
+			"destination": "/prevodi/",
+			"permanent": true
+		},
+		{
+			"source": "/category/%D0%BF%D1%80%D0%B5%D0%B2%D0%BE%D0%B4%D0%B8",
+			"destination": "/prevodi/",
+			"permanent": true
+		},
+		{
+			"source": "/category/%D0%BF%D1%80%D0%B5%D0%B2%D0%BE%D0%B4%D0%B8/",
+			"destination": "/prevodi/",
+			"permanent": true
+		},
+		{
+			"source": "/category/%d0%bf%d1%80%d0%b5%d0%b2%d0%be%d0%b4%d0%b8",
+			"destination": "/prevodi/",
+			"permanent": true
+		},
+		{
+			"source": "/category/%d0%bf%d1%80%d0%b5%d0%b2%d0%be%d0%b4%d0%b8/",
+			"destination": "/prevodi/",
+			"permanent": true
+		},
+		{
+			"source": "/tag/абидхарма",
+			"destination": "/temi/abidharma/",
+			"permanent": true
+		},
+		{
+			"source": "/tag/абидхарма/",
+			"destination": "/temi/abidharma/",
+			"permanent": true
+		},
+		{
+			"source": "/tag/%D0%B0%D0%B1%D0%B8%D0%B4%D1%85%D0%B0%D1%80%D0%BC%D0%B0",
+			"destination": "/temi/abidharma/",
+			"permanent": true
+		},
+		{
+			"source": "/tag/%D0%B0%D0%B1%D0%B8%D0%B4%D1%85%D0%B0%D1%80%D0%BC%D0%B0/",
+			"destination": "/temi/abidharma/",
+			"permanent": true
+		},
+		{
+			"source": "/tag/%d0%b0%d0%b1%d0%b8%d0%b4%d1%85%d0%b0%d1%80%d0%bc%d0%b0",
+			"destination": "/temi/abidharma/",
+			"permanent": true
+		},
+		{
+			"source": "/tag/%d0%b0%d0%b1%d0%b8%d0%b4%d1%85%d0%b0%d1%80%d0%bc%d0%b0/",
+			"destination": "/temi/abidharma/",
+			"permanent": true
+		},
+		{
+			"source": "/feed",
+			"destination": "/rss.xml",
+			"permanent": true
+		},
+		{
+			"source": "/feed/",
+			"destination": "/rss.xml",
+			"permanent": true
+		}
+	]
+}

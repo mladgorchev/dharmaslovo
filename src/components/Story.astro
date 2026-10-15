@@ -2,7 +2,7 @@
 // One translation shown in one of the editorial layouts used across the site.
 import { getEntry } from 'astro:content';
 import Cover from './Cover.astro';
-import { excerptOf, formatDate, type Translation } from '../lib/utils';
+import { excerptOf, formatDate, translationUrl, type Translation } from '../lib/utils';
 
 interface Props {
 	entry: Translation;
@@ -11,7 +11,7 @@ interface Props {
 const { entry, variant } = Astro.props;
 const { data } = entry;
 const teacher = data.teacher ? await getEntry(data.teacher) : undefined;
-const href = `/${entry.id}/`;
+const href = translationUrl(entry);
 const by = teacher ? teacher.data.name : undefined;
 ---
 {variant === 'lead' && (

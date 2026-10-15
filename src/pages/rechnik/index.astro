@@ -1,0 +1,37 @@
+---
+import Base from '../../layouts/Base.astro';
+import { excerptOf, getTerms, termUrl } from '../../lib/utils';
+
+const terms = await getTerms();
+const letterOf = (title: string) => title.charAt(0).toLocaleUpperCase('bg');
+const groups = new Map<string, typeof terms>();
+for (const t of terms) groups.set(letterOf(t.data.title), [...(groups.get(letterOf(t.data.title)) ?? []), t]);
+const alphabet = 'АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЮЯ'.split('');
+---
+<Base title="Речник" description="Речник с будистки термини на български, с еквиваленти на санскрит, пали и тибетски.">
+	<div class="wrap">
+		<header class="page-head panel">
+			<span class="kicker">Речник</span>
+			<h1>Речник с термини</h1>
+			<p>Будистки термини на български, с еквивалентите им на санскрит, пали и тибетски.</p>
+		</header>
+		<nav class="alphabet panel" aria-label="Азбука">
+			{alphabet.map((l) => (groups.has(l) ? <a href={`#bukva-${l}`}>{l}</a> : <span>{l}</span>))}
+		</nav>
+		{[...groups].map(([letter, list]) => (
+			<section class="letter-group panel" id={`bukva-${letter}`}>
+				<h2 class="letter">{letter}</h2>
+				<ul class="term-list">
+					{list.map((t) => (
+						<li>
+							<a href={termUrl(t)}>
+								<strong>{t.data.title}</strong>
+								<span>{excerptOf(t, 160)}</span>
+							</a>
+						</li>
+					))}
+				</ul>
+			</section>
+		))}
+	</div>
+</Base>

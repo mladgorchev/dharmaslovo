@@ -1,8 +1,7 @@
 ---
 import { getEntry, render } from 'astro:content';
-import Base from '../layouts/Base.astro';
-import Cover from '../components/Cover.astro';
-import { excerptOf, formatDate, getTranslations, slugify } from '../lib/utils';
+import Base from '../../layouts/Base.astro';
+import { excerptOf, formatDate, getTranslations, slugify, translationUrl } from '../../lib/utils';
 
 export async function getStaticPaths() {
 	const all = await getTranslations();
@@ -41,15 +40,11 @@ const moreNames = new Map(
 				{data.subtitle && <p class="subtitle">{data.subtitle}</p>}
 				<div class="byline">
 					{teacher && <a href={`/uchiteli/${teacher.id}/`}>{teacher.data.name}</a>}
-					{teacher && ' · '}превод: {data.translator}
+					{teacher && data.translator && ' · '}
+					{data.translator && `превод: ${data.translator}`}
 				</div>
 			</header>
 
-			{data.cover && (
-				<div class="article-cover" data-pagefind-ignore>
-					<Cover tradition={data.tradition} image={data.cover} />
-				</div>
-			)}
 
 			<div class="article-body">
 				<div class="tools" data-pagefind-ignore>
@@ -59,12 +54,12 @@ const moreNames = new Map(
 				</div>
 
 				<div>
-					<div class="prose dropcap" id="prose">
+					<div class:list={['prose', { dropcap: data.dropcap }]} id="prose">
 						<Content />
 					</div>
 
 					<dl class="source-box" data-pagefind-ignore>
-						<div><dt>Превод</dt><dd>{data.translator}</dd></div>
+						{data.translator && <div><dt>Превод</dt><dd>{data.translator}</dd></div>}
 						{teacher && <div><dt>Автор</dt><dd><a href={`/uchiteli/${teacher.id}/`}>{teacher.data.name}</a></dd></div>}
 						{data.original_language && <div><dt>Оригинал</dt><dd>{data.original_language}</dd></div>}
 						<div><dt>Публикуван</dt><dd>{formatDate(data.date)}</dd></div>
@@ -84,7 +79,7 @@ const moreNames = new Map(
 					<ol class="numbered">
 						{more.map((t) => (
 							<li>
-								<a href={`/${t.id}/`}>
+								<a href={translationUrl(t)}>
 									<span>
 										<strong>{t.data.title}</strong>
 										{moreNames.get(t.id) && <span>{moreNames.get(t.id)}</span>}
@@ -99,13 +94,13 @@ const moreNames = new Map(
 
 		<nav class="prev-next" aria-label="Други преводи">
 			{older && (
-				<a class="panel" href={`/${older.id}/`}>
+				<a class="panel" href={translationUrl(older)}>
 					<span>‹ По-стар превод</span>
 					<strong>{older.data.title}</strong>
 				</a>
 			)}
 			{newer && (
-				<a class="panel next" href={`/${newer.id}/`}>
+				<a class="panel next" href={translationUrl(newer)}>
 					<span>По-нов превод ›</span>
 					<strong>{newer.data.title}</strong>
 				</a>

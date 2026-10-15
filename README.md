@@ -2,9 +2,18 @@
 
 The new dharmaslovo.org: a static site built with [Astro](https://astro.build), with search by [Pagefind](https://pagefind.app). It replaces the WordPress site.
 
+## Content
+
+- `src/content/translations/`: translations, served at `/prevodi/<file name>/`
+- `src/content/terms/`: glossary terms, served at `/rechnik/<file name>/`
+- `src/content/teachers/`: teachers and authors, served at `/uchiteli/<file name>/`
+- `public/wp-content/uploads/`: images and PDFs from the old WordPress site, kept at their old paths
+
+Old WordPress addresses redirect to the new ones through `vercel.json`.
+
 ## Adding a translation
 
-Create a Markdown file in `src/content/translations/`. The file name becomes the address: `metta-sutta.md` is served at `/metta-sutta/`.
+Create a Markdown file in `src/content/translations/`. The file name becomes the address: `metta-sutta.md` is served at `/prevodi/metta-sutta/`.
 
 ```markdown
 ---
@@ -12,7 +21,7 @@ title: Метта сутта
 subtitle: Беседа за любящата доброта      # optional
 date: 2026-09-20
 teacher: buda-shakyamuni                  # a file name from src/content/teachers/, optional
-translator: Име Фамилия
+translator: Име Фамилия                   # optional
 tradition: Тхеравада                      # Тхеравада, Махаяна, Ваджраяна, Дзен, ...
 original_language: Пали                   # optional
 source: https://suttacentral.net/snp1.8   # optional
@@ -20,14 +29,27 @@ tags: [сутри, медитация]
 cover: /images/metta.jpg                  # optional, a file in public/images/
 featured: true                            # show on the home page, optional
 draft: true                               # hide until ready, optional
+dropcap: false                            # no large first letter, optional
 ---
 
 Текстът на превода…
 ```
 
-Teachers live in `src/content/teachers/`, one file each, with a short biography.
+## Adding a glossary term
 
-The texts currently in the repo are demo content to show the design. They will be replaced by the imported WordPress posts.
+Create a Markdown file in `src/content/terms/`:
+
+```markdown
+---
+title: Бодхичита
+date: 2025-03-01
+tags: [бодхичита]    # optional
+---
+
+Скрт: бодхичита; Тиб. …, Уайли: byang chub kyi sems
+```
+
+Teachers live in `src/content/teachers/`, one file each, with an optional short biography.
 
 ## Running locally
 

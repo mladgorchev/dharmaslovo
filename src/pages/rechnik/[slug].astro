@@ -1,0 +1,68 @@
+---
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { excerptOf, formatDate, getTerms, slugify, termUrl } from '../../lib/utils';
+
+export async function getStaticPaths() {
+	const all = await getTerms();
+	return all.map((entry, i) => ({
+		params: { slug: entry.id },
+		props: { entry, all, prev: all[i - 1], next: all[i + 1] },
+	}));
+}
+
+const { entry, all, prev, next } = Astro.props;
+const { data } = entry;
+const { Content } = await render(entry);
+const others = all.filter((t) => t.id !== entry.id).slice(0, 8);
+---
+<Base title={`${data.title} · Речник`} description={excerptOf(entry, 160)}>
+	<div class="wrap">
+		<article class="article panel" data-pagefind-body>
+			<header class="article-head">
+				<span class="kicker"><a href="/rechnik/">Речник</a></span>
+				<h1 data-pagefind-meta="title">{data.title}</h1>
+			</header>
+
+			<div class="article-body term-body">
+				<div>
+					<div class="prose">
+						<Content />
+					</div>
+					{data.tags.length > 0 && (
+						<div class="article-tags" data-pagefind-ignore>
+							{data.tags.map((tag) => <a class="tag" href={`/temi/${slugify(tag)}/`}>{tag}</a>)}
+						</div>
+					)}
+					<p class="byline term-date" data-pagefind-ignore>Добавен на {formatDate(data.date)}</p>
+				</div>
+
+				<aside class="sidebar" data-pagefind-ignore>
+					<h2>Речник</h2>
+					<p class="sidebar-sub">Други термини</p>
+					<ol class="numbered">
+						{others.map((t) => (
+							<li><a href={termUrl(t)}><span><strong>{t.data.title}</strong></span></a></li>
+						))}
+					</ol>
+					<div class="btn-row"><a class="btn" href="/rechnik/">Целият речник</a></div>
+				</aside>
+			</div>
+		</article>
+
+		<nav class="prev-next" aria-label="Съседни термини">
+			{prev && (
+				<a class="panel" href={termUrl(prev)}>
+					<span>‹ Предишен термин</span>
+					<strong>{prev.data.title}</strong>
+				</a>
+			)}
+			{next && (
+				<a class="panel next" href={termUrl(next)}>
+					<span>Следващ термин ›</span>
+					<strong>{next.data.title}</strong>
+				</a>
+			)}
+		</nav>
+	</div>
+</Base>

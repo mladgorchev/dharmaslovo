@@ -1,9 +1,9 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { getTranslations, slugify } from '../../lib/utils';
+import { getTerms, getTranslations, slugify } from '../../lib/utils';
 
 const counts = new Map<string, number>();
-(await getTranslations()).forEach((t) => t.data.tags.forEach((tag) => counts.set(tag, (counts.get(tag) ?? 0) + 1)));
+[...(await getTranslations()), ...(await getTerms())].forEach((t) => t.data.tags.forEach((tag) => counts.set(tag, (counts.get(tag) ?? 0) + 1)));
 const tags = [...counts].sort((a, b) => a[0].localeCompare(b[0], 'bg'));
 ---
 <Base title="Теми">
@@ -11,7 +11,7 @@ const tags = [...counts].sort((a, b) => a[0].localeCompare(b[0], 'bg'));
 		<header class="page-head panel">
 			<span class="kicker">Указател</span>
 			<h1>Теми</h1>
-			<p>Всички теми, по които са подредени преводите.</p>
+			<p>Всички теми, по които са подредени текстовете.</p>
 		</header>
 		<div class="topic-list panel" style="margin-top:20px">
 			{tags.map(([tag, n]) => <a href={`/temi/${slugify(tag)}/`}>{tag}<span class="count">{n}</span></a>)}

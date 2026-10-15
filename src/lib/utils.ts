@@ -1,11 +1,21 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 
 export type Translation = CollectionEntry<'translations'>;
+export type Term = CollectionEntry<'terms'>;
 
 export async function getTranslations(): Promise<Translation[]> {
 	const all = await getCollection('translations', ({ data }) => !data.draft);
 	return all.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 }
+
+// Glossary terms in Bulgarian alphabetical order.
+export async function getTerms(): Promise<Term[]> {
+	const all = await getCollection('terms', ({ data }) => !data.draft);
+	return all.sort((a, b) => a.data.title.localeCompare(b.data.title, 'bg'));
+}
+
+export const translationUrl = (entry: Translation) => `/prevodi/${entry.id}/`;
+export const termUrl = (entry: Term) => `/rechnik/${entry.id}/`;
 
 const dateFormat = new Intl.DateTimeFormat('bg-BG', {
 	day: 'numeric',
@@ -41,10 +51,12 @@ export function slugify(text: string): string {
 		.replace(/^-+|-+$/g, '');
 }
 
-export function excerptOf(entry: Translation, length = 180): string {
-	if (entry.data.excerpt) return entry.data.excerpt;
+export function excerptOf(entry: Translation | Term, length = 180): string {
+	if ('excerpt' in entry.data && entry.data.excerpt) return entry.data.excerpt;
 	const plain = (entry.body ?? '')
+		.replace(/<[^>]+>/g, ' ')
 		.replace(/^#+\s.*$/gm, '')
+		.replace(/^-{3,}$/gm, '')
 		.replace(/[*_>`#\[\]()]/g, '')
 		.replace(/\s+/g, ' ')
 		.trim();
