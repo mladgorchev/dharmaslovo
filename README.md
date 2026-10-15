@@ -16,6 +16,8 @@ Old WordPress addresses, including the old `wp-content/uploads` file links, redi
 
 The site can be edited in the browser with [Pages CMS](https://app.pagescms.org): log in with GitHub and open this repository. Its settings are in `.pages.yml`. Every save is a commit to `main`, and Vercel publishes it within a couple of minutes.
 
+When you create a text, the file name is filled in from the title. It can be in Cyrillic: the site turns it into a Latin web address, so `Седемте точки.md` is served at `/prevodi/sedemte-tochki/`. The address stays the same if the title changes later.
+
 New texts start as drafts (`draft: true`): they are saved in the repository but not shown on the site until the draft switch is turned off. The repository is public, so drafts can still be read on GitHub.
 
 ## Adding a translation

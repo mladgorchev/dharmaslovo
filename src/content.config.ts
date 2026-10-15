@@ -1,9 +1,13 @@
 import { defineCollection, reference } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
+import { idFromFile } from './lib/slug';
+
+const generateId = ({ entry, data }: { entry: string; data: Record<string, unknown> }) =>
+	idFromFile(entry, data);
 
 const translations = defineCollection({
-	loader: glob({ pattern: '**/*.md', base: './src/content/translations' }),
+	loader: glob({ pattern: '**/*.md', base: './src/content/translations', generateId }),
 	schema: z.object({
 		title: z.string(),
 		subtitle: z.string().optional(),
@@ -12,7 +16,7 @@ const translations = defineCollection({
 		// online editor (Pages CMS) may store the teacher as a file path.
 		teacher: z
 			.preprocess(
-				(v) => (typeof v === 'string' ? v.replace(/^.*\//, '').replace(/\.md$/, '') : v),
+				(v) => (typeof v === 'string' ? idFromFile(v.replace(/^.*\//, ''), {}) : v),
 				reference('teachers')
 			)
 			.optional(),
@@ -37,7 +41,7 @@ const translations = defineCollection({
 });
 
 const teachers = defineCollection({
-	loader: glob({ pattern: '**/*.md', base: './src/content/teachers' }),
+	loader: glob({ pattern: '**/*.md', base: './src/content/teachers', generateId }),
 	schema: z.object({
 		name: z.string(),
 		dates: z.string().optional(),
@@ -51,7 +55,7 @@ const teachers = defineCollection({
 });
 
 const terms = defineCollection({
-	loader: glob({ pattern: '**/*.md', base: './src/content/terms' }),
+	loader: glob({ pattern: '**/*.md', base: './src/content/terms', generateId }),
 	schema: z.object({
 		title: z.string(),
 		date: z.coerce.date(),
