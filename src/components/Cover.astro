@@ -11,11 +11,11 @@ interface Props {
 const { tradition, image, book = false, framed = false } = Astro.props;
 
 const hues: Record<string, string> = {
-	'Тхеравада': '#b8611c',
-	'Махаяна': '#801c4a',
-	'Ваджраяна': '#21409a',
+	'Тхеравада': '#c4870f',
+	'Махаяна': '#7b2232',
+	'Ваджраяна': '#1f3a64',
 	'Дзен': '#006176',
-	'Тибетски будизъм': '#801c4a',
+	'Тибетски будизъм': '#7b2232',
 };
 const hue = (tradition && hues[tradition]) || '#5a4a3f';
 ---
