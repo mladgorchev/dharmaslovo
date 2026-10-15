@@ -55,6 +55,7 @@ export function excerptOf(entry: Translation | Term, length = 180): string {
 	if ('excerpt' in entry.data && entry.data.excerpt) return entry.data.excerpt;
 	const plain = (entry.body ?? '')
 		.replace(/<[^>]+>/g, ' ')
+		.replace(/\\$/gm, '')
 		.replace(/^#+\s.*$/gm, '')
 		.replace(/^-{3,}$/gm, '')
 		.replace(/[*_>`#\[\]()]/g, '')

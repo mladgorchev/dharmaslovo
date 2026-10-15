@@ -6,8 +6,9 @@ interface Props {
 	tradition?: string;
 	image?: string;
 	book?: boolean;
+	framed?: boolean;
 }
-const { tradition, image, book = false } = Astro.props;
+const { tradition, image, book = false, framed = false } = Astro.props;
 
 const hues: Record<string, string> = {
 	'Тхеравада': '#b8611c',
@@ -18,6 +19,6 @@ const hues: Record<string, string> = {
 };
 const hue = (tradition && hues[tradition]) || '#5a4a3f';
 ---
-<div class:list={['cover', { 'cover-book': book && image }]} style={`--hue: ${hue}${book && image ? `; --img: url("${image}")` : ''}`}>
+<div class:list={['cover', { 'cover-book': book && image, 'cover-framed': framed && image }]} style={`--hue: ${hue}${book && image ? `; --img: url("${image}")` : ''}`}>
 	{image ? <img src={image} alt="" loading="lazy" /> : <Icon name="wheel" size={64} />}
 </div>

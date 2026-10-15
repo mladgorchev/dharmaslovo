@@ -1,6 +1,7 @@
 ---
 import { getEntry, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import ArtFigure from '../../components/ArtFigure.astro';
 import { excerptOf, formatDate, getTranslations, slugify, translationUrl } from '../../lib/utils';
 
 export async function getStaticPaths() {
@@ -54,6 +55,9 @@ const moreNames = new Map(
 				</div>
 
 				<div>
+					{data.cover && data.cover_credit && (
+						<ArtFigure src={data.cover} credit={data.cover_credit} creditUrl={data.cover_credit_url} />
+					)}
 					<div class:list={['prose', { dropcap: data.dropcap }]} id="prose">
 						<Content />
 					</div>

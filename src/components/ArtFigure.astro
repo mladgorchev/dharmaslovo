@@ -1,0 +1,18 @@
+---
+// An image with its credit line, floated beside the text on wide screens.
+interface Props {
+	src: string;
+	credit?: string;
+	creditUrl?: string;
+}
+const { src, credit, creditUrl } = Astro.props;
+---
+<figure class="art-figure">
+	<img src={src} alt={credit ?? ''} loading="lazy" />
+	{credit && (
+		<figcaption>
+			{credit}
+			{creditUrl && <> <a href={creditUrl} rel="noopener">Източник</a></>}
+		</figcaption>
+	)}
+</figure>

@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import ArtFigure from '../../components/ArtFigure.astro';
 import Story from '../../components/Story.astro';
 import { getTranslations } from '../../lib/utils';
 
@@ -25,6 +26,7 @@ const works = (await getTranslations()).filter((t) => t.data.teacher?.id === tea
 				<h1>{data.name}</h1>
 				<span class="date">{[data.dates, data.region].filter(Boolean).join(' · ')}</span>
 			</header>
+			{data.portrait && <ArtFigure src={data.portrait} credit={data.portrait_credit} creditUrl={data.portrait_credit_url} />}
 			<div class="prose">
 				{data.summary && <p class="lede">{data.summary}</p>}
 				<Content />

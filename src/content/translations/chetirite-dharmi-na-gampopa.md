@@ -6,6 +6,10 @@ translator: Младен Горчев
 tradition: Тибетски будизъм
 original_language: Тибетски
 dropcap: false
+cover: /images/gampopa-har-276.jpg
+cover_style: framed
+cover_credit: "Гампопа Сонам Ринчен (детайл). Тибет, XVIII в. Минерални пигменти върху памук. Колекция на Rubin Museum of Art. Снимка: Rubin Museum of Art / Himalayan Art Resources (HAR 276)."
+cover_credit_url: https://www.himalayanart.org/items/276
 ---
 
 (Тиб. དྭགས་པོ་་ཆོས་བཞི་, Уайли. dwags po chos bzhi)
