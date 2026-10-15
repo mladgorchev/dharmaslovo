@@ -16,6 +16,8 @@ const translations = defineCollection({
 		tags: z.array(z.string()).default([]),
 		excerpt: z.string().optional(),
 		cover: z.string().optional(),
+		// 'book' shows the whole cover upright on a blurred backdrop instead of cropping it.
+		cover_style: z.enum(['photo', 'book']).default('photo'),
 		featured: z.boolean().default(false),
 		// Large first letter on the text page; off for texts that open with a note or a verse.
 		dropcap: z.boolean().default(true),

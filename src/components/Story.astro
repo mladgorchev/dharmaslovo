@@ -16,7 +16,7 @@ const by = teacher ? teacher.data.name : undefined;
 ---
 {variant === 'lead' && (
 	<a class="lead-story" href={href}>
-		<Cover tradition={data.tradition} image={data.cover} />
+		<Cover tradition={data.tradition} image={data.cover} book={data.cover_style === 'book'} />
 		<div class="story-text">
 			{data.tradition && <span class="kicker">{data.tradition}</span>}
 			<h2>{data.title}</h2>
@@ -27,7 +27,7 @@ const by = teacher ? teacher.data.name : undefined;
 )}
 {variant === 'second' && (
 	<a class="second-story" href={href}>
-		<Cover tradition={data.tradition} image={data.cover} />
+		<Cover tradition={data.tradition} image={data.cover} book={data.cover_style === 'book'} />
 		<h3>{data.title}</h3>
 		{by && <span class="byline">{by}</span>}
 	</a>
@@ -45,7 +45,7 @@ const by = teacher ? teacher.data.name : undefined;
 			{data.tradition && <span class="kicker">{data.tradition}</span>}
 			{data.tags.slice(0, 3).join(', ')}
 		</div>
-		<Cover tradition={data.tradition} image={data.cover} />
+		<Cover tradition={data.tradition} image={data.cover} book={data.cover_style === 'book'} />
 		<div>
 			<h3>{data.title}</h3>
 			<p>{excerptOf(entry, 170)}</p>

@@ -5,8 +5,9 @@ import Icon from './Icon.astro';
 interface Props {
 	tradition?: string;
 	image?: string;
+	book?: boolean;
 }
-const { tradition, image } = Astro.props;
+const { tradition, image, book = false } = Astro.props;
 
 const hues: Record<string, string> = {
 	'Тхеравада': '#b8611c',
@@ -17,6 +18,6 @@ const hues: Record<string, string> = {
 };
 const hue = (tradition && hues[tradition]) || '#5a4a3f';
 ---
-<div class="cover" style={`--hue: ${hue}`}>
+<div class:list={['cover', { 'cover-book': book && image }]} style={`--hue: ${hue}${book && image ? `; --img: url("${image}")` : ''}`}>
 	{image ? <img src={image} alt="" loading="lazy" /> : <Icon name="wheel" size={64} />}
 </div>
