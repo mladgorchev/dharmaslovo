@@ -1,0 +1,26 @@
+---
+// One article in a listing: label column, optional image, title, excerpt and author.
+import { getEntry } from 'astro:content';
+import Cover from './Cover.astro';
+import { articleKindLabels, articleUrl, excerptOf, formatDate, type Article } from '../lib/utils';
+
+interface Props {
+	entry: Article;
+}
+const { entry } = Astro.props;
+const { data } = entry;
+const author = data.author ? await getEntry(data.author) : undefined;
+---
+<a class:list={['row-story panel', { 'no-cover': !data.cover }]} href={articleUrl(entry)}>
+	<div class="row-label">
+		<span class="kicker">{articleKindLabels[data.kind]}</span>
+		{data.tags.slice(0, 3).join(', ')}
+	</div>
+	{data.cover && <Cover image={data.cover} book={data.cover_style === 'book'} framed={data.cover_style === 'framed'} />}
+	<div>
+		<h3>{data.title}</h3>
+		<p>{excerptOf(entry, 170)}</p>
+		{author && <span class="byline">{author.data.name}</span>}
+		<time class="date" datetime={data.date.toISOString()}>{formatDate(data.date)}</time>
+	</div>
+</a>

@@ -1,0 +1,41 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import ArtFigure from '../../components/ArtFigure.astro';
+import ArticleRow from '../../components/ArticleRow.astro';
+import { getArticles } from '../../lib/utils';
+
+export async function getStaticPaths() {
+	const authors = await getCollection('authors');
+	return authors.map((author) => ({ params: { id: author.id }, props: { author } }));
+}
+
+const { author } = Astro.props;
+const { data } = author;
+const { Content } = await render(author);
+const works = (await getArticles()).filter((a) => a.data.author?.id === author.id);
+---
+<Base title={data.name} description={data.summary ?? `Статии от ${data.name}.`}>
+	<div class="wrap">
+		<article class="bio panel">
+			<header class="bio-head">
+				<span class="kicker"><a href="/avtori/">Автори</a></span>
+				<h1>{data.name}</h1>
+				{data.role && <span class="date">{data.role}</span>}
+			</header>
+			{data.portrait && <ArtFigure src={data.portrait} />}
+			<div class="prose">
+				{data.summary && <p class="lede">{data.summary}</p>}
+				<Content />
+				{data.website && <p><a href={data.website} rel="noopener">{new URL(data.website).hostname}</a></p>}
+			</div>
+		</article>
+		{works.length > 0 && (
+			<>
+				<h2 class="section-title">Статии</h2>
+				<p class="section-sub">{works.length} {works.length === 1 ? 'статия' : 'статии'}</p>
+				<div class="rows">{works.map((entry) => <ArticleRow entry={entry} />)}</div>
+			</>
+		)}
+	</div>
+</Base>

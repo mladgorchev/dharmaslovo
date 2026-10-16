@@ -1,0 +1,140 @@
+---
+import { getEntry, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import ArtFigure from '../../components/ArtFigure.astro';
+import ReaderTools from '../../components/ReaderTools.astro';
+import {
+	articleKindLabels,
+	articleUrl,
+	authorUrl,
+	excerptOf,
+	formatDate,
+	getArticles,
+	slugify,
+	translationUrl,
+} from '../../lib/utils';
+
+export async function getStaticPaths() {
+	const all = await getArticles();
+	return all.map((entry, i) => ({
+		params: { slug: entry.id },
+		props: { entry, all, older: all[i + 1], newer: all[i - 1] },
+	}));
+}
+
+const { entry, all, older, newer } = Astro.props;
+const { data } = entry;
+const { Content } = await render(entry);
+const author = data.author ? await getEntry(data.author) : undefined;
+const related = (await Promise.all(data.related.map((r) => getEntry(r)))).filter((t) => t && !t.data.draft);
+const kindLabel = articleKindLabels[data.kind];
+const url = new URL(articleUrl(entry), Astro.site).href;
+
+// Sidebar: more by the same author first, then the latest articles.
+const others = all.filter((a) => a.id !== entry.id);
+const sameAuthor = author ? others.filter((a) => a.data.author?.id === author.id) : [];
+const more = [...sameAuthor, ...others.filter((a) => !sameAuthor.includes(a))].slice(0, 5);
+---
+<Base title={data.title} description={excerptOf(entry, 160)}>
+	<div class="wrap">
+		<article class="article panel" data-pagefind-body>
+			<header class="article-head">
+				<span class="kicker">
+					<a href="/statii/">Статия</a><span class="sep">|</span><a href={`/statii/vid/${data.kind}/`}>{kindLabel}</a>
+				</span>
+				<h1 data-pagefind-meta="title">{data.title}</h1>
+				{data.subtitle && <p class="subtitle">{data.subtitle}</p>}
+				<div class="byline">
+					{author && <a href={authorUrl(author.id)}>{author.data.name}</a>}
+					{author && ' · '}
+					<time datetime={data.date.toISOString()}>{formatDate(data.date)}</time>
+				</div>
+			</header>
+
+			<div class="article-body">
+				<ReaderTools />
+
+				<div>
+					{data.cover && (data.cover_credit || data.cover_credit_url) && (
+						<ArtFigure src={data.cover} credit={data.cover_credit} creditUrl={data.cover_credit_url} />
+					)}
+					<div class:list={['prose', { dropcap: data.dropcap }]} id="prose">
+						<Content />
+					</div>
+
+					{related.length > 0 && (
+						<div class="related-box" data-pagefind-ignore>
+							<span class="label">Свързани преводи</span>
+							<ul>
+								{related.map((t) => t && <li><a href={translationUrl(t)}>{t.data.title}</a></li>)}
+							</ul>
+						</div>
+					)}
+
+					{data.tags.length > 0 && (
+						<div class="article-tags" data-pagefind-ignore>
+							{data.tags.map((tag) => <a class="tag" href={`/temi/${slugify(tag)}/`}>{tag}</a>)}
+						</div>
+					)}
+
+					{author && (
+						<aside class="author-box" data-pagefind-ignore>
+							{author.data.portrait && <img src={author.data.portrait} alt="" loading="lazy" />}
+							<div>
+								<span class="label">За автора</span>
+								<a class="author-name" href={authorUrl(author.id)}>{author.data.name}</a>
+								{author.data.role && <span class="author-role">{author.data.role}</span>}
+								{author.data.summary && <p>{author.data.summary}</p>}
+							</div>
+						</aside>
+					)}
+
+					{data.kind === 'izsledvane' && (
+						<p class="cite" data-pagefind-ignore>
+							<span class="label">Как да цитирате</span>
+							{author && `${author.data.name}. `}„{data.title}“. Дхарма Слово, {formatDate(data.date)} {url}
+						</p>
+					)}
+				</div>
+
+				<aside class="sidebar" data-pagefind-ignore>
+					<h2>Още статии</h2>
+					<p class="sidebar-sub">{sameAuthor.length > 0 && author ? `Още от ${author.data.name}` : 'Последно публикувани'}</p>
+					{more.length > 0 ? (
+						<ol class="numbered">
+							{more.map((a) => (
+								<li><a href={articleUrl(a)}><span><strong>{a.data.title}</strong><span>{articleKindLabels[a.data.kind]}</span></span></a></li>
+							))}
+						</ol>
+					) : (
+						<p class="byline">Това е първата статия.</p>
+					)}
+				</aside>
+			</div>
+		</article>
+
+		<nav class="prev-next" aria-label="Други статии">
+			{older && (
+				<a class="panel" href={articleUrl(older)}>
+					<span>‹ По-стара статия</span>
+					<strong>{older.data.title}</strong>
+				</a>
+			)}
+			{newer && (
+				<a class="panel next" href={articleUrl(newer)}>
+					<span>По-нова статия ›</span>
+					<strong>{newer.data.title}</strong>
+				</a>
+			)}
+		</nav>
+	</div>
+</Base>
+
+<script>
+	// The Markdown processor labels footnotes in English; give screen readers Bulgarian labels.
+	const label = document.getElementById('footnote-label');
+	if (label) label.textContent = 'Бележки под линия';
+	document.querySelectorAll('[data-footnote-backref]').forEach((a, i) => {
+		a.setAttribute('aria-label', `Обратно към бележка ${i + 1}`);
+	});
+</script>

@@ -9,7 +9,7 @@ const { src, credit, creditUrl } = Astro.props;
 ---
 <figure class="art-figure">
 	<img src={src} alt={credit ?? ''} loading="lazy" />
-	{credit && (
+	{(credit || creditUrl) && (
 		<figcaption>
 			{credit}
 			{creditUrl && <> <a href={creditUrl} rel="noopener">Източник</a></>}

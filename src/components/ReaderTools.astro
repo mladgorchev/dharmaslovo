@@ -1,0 +1,42 @@
+---
+// Text size and font buttons for reading pages. They act on the element with id="prose".
+---
+<div class="tools" data-pagefind-ignore>
+	<button type="button" data-size="1" aria-label="По-голям текст">А+</button>
+	<button type="button" data-size="-1" aria-label="По-малък текст">А−</button>
+	<button type="button" data-font aria-pressed="false" aria-label="Шрифт без серифи">Аа</button>
+</div>
+
+<script>
+	const prose = document.getElementById('prose')!;
+	const root = document.documentElement;
+	const sizes = [1.0, 1.1, 1.2, 1.32, 1.45];
+	let size = 2;
+	let font = 'serif';
+	try {
+		size = Number(localStorage.getItem('reading-size') ?? 2);
+		font = localStorage.getItem('reading-font') ?? 'serif';
+	} catch {}
+	if (!(size >= 0 && size < sizes.length)) size = 2;
+	const fontBtn = document.querySelector<HTMLButtonElement>('[data-font]')!;
+	const apply = () => {
+		root.style.setProperty('--reading-size', sizes[size] + 'rem');
+		prose.dataset.font = font;
+		fontBtn.setAttribute('aria-pressed', String(font === 'sans'));
+		try {
+			localStorage.setItem('reading-size', String(size));
+			localStorage.setItem('reading-font', font);
+		} catch {}
+	};
+	apply();
+	document.querySelectorAll<HTMLButtonElement>('[data-size]').forEach((b) =>
+		b.addEventListener('click', () => {
+			size = Math.min(sizes.length - 1, Math.max(0, size + Number(b.dataset.size)));
+			apply();
+		})
+	);
+	fontBtn.addEventListener('click', () => {
+		font = font === 'serif' ? 'sans' : 'serif';
+		apply();
+	});
+</script>

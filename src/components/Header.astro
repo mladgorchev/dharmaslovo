@@ -1,9 +1,11 @@
 ---
 import Icon from './Icon.astro';
+import { settings } from '../lib/utils';
 
 const sections = [
 	{ href: '/prevodi/', label: 'Преводи' },
 	{ href: '/rechnik/', label: 'Речник' },
+	...(settings.show_articles ? [{ href: '/statii/', label: 'Статии' }] : []),
 	{ href: '/uchiteli/', label: 'Учители' },
 	{ href: '/tarsene/', label: 'Търсене' },
 	{ href: '/za-nas/', label: 'За нас' },

@@ -6,7 +6,10 @@ The new dharmaslovo.org: a static site built with [Astro](https://astro.build), 
 
 - `src/content/translations/`: translations, served at `/prevodi/<file name>/`
 - `src/content/terms/`: glossary terms, served at `/rechnik/<file name>/`
-- `src/content/teachers/`: teachers and authors, served at `/uchiteli/<file name>/`
+- `src/content/teachers/`: teachers and authors of the translated texts, served at `/uchiteli/<file name>/`
+- `src/content/articles/`: articles by practitioners and scholars, served at `/statii/<file name>/`
+- `src/content/authors/`: article authors, served at `/avtori/<file name>/`
+- `src/data/settings.json`: site switches, such as whether the articles section is shown
 - `public/images/`: images
 - `public/files/`: downloads such as PDF books
 
@@ -43,6 +46,12 @@ dropcap: false                            # no large first letter, optional
 
 Текстът на превода…
 ```
+
+## Articles
+
+Articles have one of three kinds: `izsledvane` (Изследване, research), `praktika` (Практика и опит, practice and experience) or `belezhki` (Бележки, notes). An article can list the translations it discusses under `related`; those translation pages then link back to it. Research articles get a citation box, and footnotes are written as `[^1]` in the text with `[^1]: …` at the end.
+
+The section stays out of the menu and the home page until `show_articles` is set to `true` in `src/data/settings.json` (or "Настройки" in the online editor). Article pages are still built, so a published article can be shared by link before the section is switched on.
 
 ## Adding a glossary term
 

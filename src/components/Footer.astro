@@ -1,4 +1,6 @@
 ---
+import { settings } from '../lib/utils';
+
 const year = new Date().getFullYear();
 ---
 <footer class="site-footer">
@@ -14,6 +16,7 @@ const year = new Date().getFullYear();
 				<ul>
 					<li><a href="/prevodi/">Всички преводи</a></li>
 					<li><a href="/rechnik/">Речник</a></li>
+					{settings.show_articles && <li><a href="/statii/">Статии</a></li>}
 					<li><a href="/uchiteli/">Учители</a></li>
 					<li><a href="/temi/">Теми</a></li>
 					<li><a href="/tarsene/">Търсене</a></li>

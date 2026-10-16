@@ -1,0 +1,27 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { authorUrl, getArticles } from '../../lib/utils';
+
+const authors = (await getCollection('authors')).sort((a, b) => a.data.name.localeCompare(b.data.name, 'bg'));
+const articles = await getArticles();
+const count = (id: string) => articles.filter((a) => a.data.author?.id === id).length;
+---
+<Base title="Автори" description="Авторите на статиите в Дхарма Слово.">
+	<div class="wrap">
+		<header class="page-head panel">
+			<a class="kicker" href="/statii/">Статии</a>
+			<h1>Автори</h1>
+			<p>Практикуващи и изследователи, които пишат за Дхарма Слово.</p>
+		</header>
+		<div class="teacher-grid" style="margin-top:20px">
+			{authors.map((a) => (
+				<a class="teacher panel" href={authorUrl(a.id)}>
+					{a.data.role && <span class="kicker">{a.data.role}</span>}
+					<h3>{a.data.name}</h3>
+					<span class="date">{count(a.id)} {count(a.id) === 1 ? 'статия' : 'статии'}</span>
+				</a>
+			))}
+		</div>
+	</div>
+</Base>

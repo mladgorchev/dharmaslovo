@@ -1,0 +1,15 @@
+---
+// Links to the three kinds of article, with the current one marked.
+import { articleKindLabels } from '../lib/utils';
+
+interface Props {
+	current?: string;
+}
+const { current } = Astro.props;
+---
+<nav class="kind-tabs" aria-label="Видове статии">
+	<a href="/statii/" aria-current={!current ? 'page' : undefined}>Всички</a>
+	{Object.entries(articleKindLabels).map(([kind, label]) => (
+		<a href={`/statii/vid/${kind}/`} aria-current={current === kind ? 'page' : undefined}>{label}</a>
+	))}
+</nav>

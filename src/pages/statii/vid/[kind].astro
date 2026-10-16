@@ -1,0 +1,30 @@
+---
+import Base from '../../../layouts/Base.astro';
+import ArticleRow from '../../../components/ArticleRow.astro';
+import ArticleKinds from '../../../components/ArticleKinds.astro';
+import { articleKindLabels, getArticles } from '../../../lib/utils';
+
+export async function getStaticPaths() {
+	const all = await getArticles();
+	return Object.entries(articleKindLabels).map(([kind, label]) => ({
+		params: { kind },
+		props: { kind, label, entries: all.filter((a) => a.data.kind === kind) },
+	}));
+}
+
+const { kind, label, entries } = Astro.props;
+---
+<Base title={`${label} · Статии`}>
+	<div class="wrap">
+		<header class="page-head panel">
+			<a class="kicker" href="/statii/">Статии</a>
+			<h1>{label}</h1>
+		</header>
+		<ArticleKinds current={kind} />
+		{entries.length > 0 ? (
+			<div class="rows">{entries.map((entry) => <ArticleRow entry={entry} />)}</div>
+		) : (
+			<p class="empty panel">Все още няма статии от този вид.</p>
+		)}
+	</div>
+</Base>

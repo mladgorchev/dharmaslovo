@@ -1,7 +1,19 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
+import siteSettings from '../data/settings.json';
 
 export type Translation = CollectionEntry<'translations'>;
 export type Term = CollectionEntry<'terms'>;
+export type Article = CollectionEntry<'articles'>;
+export type Author = CollectionEntry<'authors'>;
+
+// Site-wide switches, editable in the online editor under "Настройки".
+export const settings: { show_articles: boolean } = siteSettings;
+
+export const articleKindLabels: Record<Article['data']['kind'], string> = {
+	izsledvane: 'Изследване',
+	praktika: 'Практика и опит',
+	belezhki: 'Бележки',
+};
 
 export async function getTranslations(): Promise<Translation[]> {
 	const all = await getCollection('translations', ({ data }) => !data.draft);
@@ -14,7 +26,15 @@ export async function getTerms(): Promise<Term[]> {
 	return all.sort((a, b) => a.data.title.localeCompare(b.data.title, 'bg'));
 }
 
+// Published articles, newest first.
+export async function getArticles(): Promise<Article[]> {
+	const all = await getCollection('articles', ({ data }) => !data.draft);
+	return all.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+}
+
 export const translationUrl = (entry: Translation) => `/prevodi/${entry.id}/`;
+export const articleUrl = (entry: Article) => `/statii/${entry.id}/`;
+export const authorUrl = (id: string) => `/avtori/${id}/`;
 export const termUrl = (entry: Term) => `/rechnik/${entry.id}/`;
 
 const dateFormat = new Intl.DateTimeFormat('bg-BG', {
@@ -34,9 +54,11 @@ export function readingTime(body = ''): number {
 
 export { slugify } from './slug';
 
-export function excerptOf(entry: Translation | Term, length = 180): string {
+export function excerptOf(entry: Translation | Term | Article, length = 180): string {
 	if ('excerpt' in entry.data && entry.data.excerpt) return entry.data.excerpt;
 	const plain = (entry.body ?? '')
+		.replace(/^\[\^[^\]]+\]:.*$/gm, '')
+		.replace(/\[\^[^\]]+\]/g, '')
 		.replace(/<[^>]+>/g, ' ')
 		.replace(/\\$/gm, '')
 		.replace(/^#+\s.*$/gm, '')

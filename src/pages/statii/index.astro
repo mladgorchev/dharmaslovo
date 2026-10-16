@@ -1,0 +1,23 @@
+---
+import Base from '../../layouts/Base.astro';
+import ArticleRow from '../../components/ArticleRow.astro';
+import ArticleKinds from '../../components/ArticleKinds.astro';
+import { getArticles } from '../../lib/utils';
+
+const articles = await getArticles();
+---
+<Base title="Статии" description="Изследвания, размисли от практиката и бележки за будизма от практикуващи и изследователи.">
+	<div class="wrap">
+		<header class="page-head panel">
+			<span class="kicker">Статии</span>
+			<h1>Статии</h1>
+			<p>Изследвания, размисли от практиката и бележки от практикуващи и изследователи.</p>
+		</header>
+		<ArticleKinds />
+		{articles.length > 0 ? (
+			<div class="rows">{articles.map((entry) => <ArticleRow entry={entry} />)}</div>
+		) : (
+			<p class="empty panel">Все още няма публикувани статии.</p>
+		)}
+	</div>
+</Base>
