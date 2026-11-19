@@ -7,6 +7,7 @@ import '@fontsource-variable/jost';
 // Tibetan script in the texts; only downloaded on pages that contain it.
 import '@fontsource/jomolhari/tibetan-400.css';
 import '../styles/global.css';
+import Analytics from '@vercel/analytics/astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
@@ -43,6 +44,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 			} catch {}
 		</script>
 		<slot name="head" />
+		<!-- Vercel Web Analytics: cookieless page-view counts, shown in the Vercel dashboard. -->
+		<Analytics />
 	</head>
 	<body>
 		<Header />
