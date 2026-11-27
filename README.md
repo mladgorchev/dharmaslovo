@@ -13,6 +13,8 @@ The new dharmaslovo.org: a static site built with [Astro](https://astro.build), 
 - `public/images/`: images
 - `public/files/`: downloads such as PDF books
 
+To count downloads, link to `/iztegli/<file name without extension>/` instead of `/files/...`: for example `/iztegli/taga-lyubov-otvorenost/` for `public/files/taga-lyubov-otvorenost.pdf`. Every file in `public/files/` gets such a page automatically. It opens the file after a moment, and its visitor count in Vercel Analytics (Pages) is the number of downloads.
+
 Old WordPress addresses, including the old `wp-content/uploads` file links, redirect to the new ones through `vercel.json`.
 
 ## Editing online

@@ -1,0 +1,35 @@
+---
+// A short page in front of each download in public/files/. Visits to it are counted
+// by Vercel Web Analytics (custom events need a paid plan), so the number of visitors
+// to /iztegli/<name>/ is the number of downloads. It then opens the file.
+import { readdirSync } from 'node:fs';
+import Base from '../../layouts/Base.astro';
+
+export function getStaticPaths() {
+	return readdirSync('public/files')
+		.filter((name) => !name.startsWith('.'))
+		.map((name) => ({
+			params: { file: name.replace(/\.[^.]+$/, '') },
+			props: { href: `/files/${name}` },
+		}));
+}
+
+const { href } = Astro.props;
+---
+<Base title="Изтегляне">
+	<meta slot="head" name="robots" content="noindex" />
+	<div class="wrap">
+		<header class="page-head panel">
+			<span class="kicker">Изтегляне</span>
+			<h1>Файлът се отваря…</h1>
+			<p>Ако не се отвори след няколко секунди, <a href={href} id="download-link">натиснете тук</a>.</p>
+		</header>
+	</div>
+</Base>
+
+<script>
+	// Give the analytics script a moment to record the visit, then open the file.
+	// replace() keeps this page out of the history, so "back" returns to the text.
+	const link = document.getElementById('download-link') as HTMLAnchorElement;
+	setTimeout(() => location.replace(link.href), 1200);
+</script>

@@ -16,7 +16,7 @@ excerpt: "С радост споделям, че книгата от Чоки Н
 
 <img class="book-cover" src="/images/taga-lyubov-otvorenost-cover.jpg" alt="Корица на книгата „Тъга, Любов, Отвореност“" width="291" />
 
-<p class="download"><a class="btn btn-solid" href="/files/taga-lyubov-otvorenost.pdf">Свали книжката от тук</a></p>
+<p class="download"><a class="btn btn-solid" href="/iztegli/taga-lyubov-otvorenost/">Свали книжката от тук</a></p>
 
 Книгата представя един постепенен път до пробуждането, започвайки с тъгата (Ринпоче подчертава „здравословен вид" тъга), която идва от разбирането на непостоянната природа на всички неща. Тази тъга ни позволява да видим нашата природа и тази на всички и всичко около нас — непостоянността. И когато видим, че това е факт, има само едно нещо да направим — да пуснем вкопчеността си, че всичко и всички са постоянни и непроменящи се неща.
 
@@ -39,4 +39,4 @@ excerpt: "С радост споделям, че книгата от Чоки Н
 > Природата на ума ти е съвършено пробуждане — осъзнай\
 > го, преживей го и го осъществи.
 
-<p class="download"><a class="btn btn-solid" href="/files/taga-lyubov-otvorenost.pdf">Свали книжката от тук</a></p>
+<p class="download"><a class="btn btn-solid" href="/iztegli/taga-lyubov-otvorenost/">Свали книжката от тук</a></p>
